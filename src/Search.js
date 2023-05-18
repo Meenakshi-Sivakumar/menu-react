@@ -1,11 +1,11 @@
 import React from "react";
-import { BsSearch } from "react-icons/bs";
+import { MdClear } from "react-icons/md";
 
-const Search = ({search}) => {
+const Search = ({search, clear, searchValue}) => {
     return (
     <div className='search-block'>
-        <input type='text' placeholder='search...' onChange={search}></input>
-        <button > <BsSearch /> </button>
+        <input type='text' placeholder='search...' value={searchValue} onChange={search}></input>
+        <button onClick={clear}> <MdClear /> </button>
     </div>
     );
 }
