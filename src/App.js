@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Menu from './Menu';
 import Categories from './Categories';
 import Search from './Search';
@@ -7,16 +7,22 @@ const allCategories = ['All', ...new Set(items.map(item => item.category))];
 
 function App() {
   const [menu, setMenu] = useState(items);
+  const [searchValue, setSearchValue] = useState('');
   const [categories, setCategories] = useState(allCategories);
+  useEffect(()=>{
+    if(searchValue.length === 0) {
+      setMenu(items);
+    }
+  });
 
+  const clear = () => {
+    setSearchValue('');
+    setMenu(items);
+  }
   const search = (event) => {
-      const searchValue = event.target.value.trim();
-      if(searchValue === ''){
-        setMenu(items);
-        return;
-      }
-      const newMenu = menu.filter(item => {
-        return item.title.includes(searchValue.toLowerCase()) || item.category.includes(searchValue.toLowerCase());
+      setSearchValue(event.target.value);
+      const newMenu = items.filter(item => {
+        return item.title.includes(searchValue.toLowerCase().trim()) || item.category.includes(searchValue.toLowerCase().trim());
       })
       setMenu(newMenu);
   }
@@ -36,7 +42,7 @@ function App() {
     <div className='section'>
       <h2>We Serve</h2>
       <p>Savor the Flavor: Where Culinary Delights Come Alive!</p>
-      <Search search={search} />
+      <Search search={search} clear={clear} searchValue={searchValue}/>
       <div className='categories'>
         <Categories categories={categories} filterCategories={filterCategories}/>
       </div>
