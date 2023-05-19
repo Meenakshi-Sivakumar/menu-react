@@ -247,6 +247,7 @@ Menu
 
 .menu-section {
   margin-top: 3rem;
+  margin-bottom: 4rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
