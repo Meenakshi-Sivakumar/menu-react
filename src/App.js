@@ -13,7 +13,7 @@ function App() {
     if(searchValue.length === 0 && categories) {
       setMenu(items);
     }
-  },[]);
+  });
 
 
 
