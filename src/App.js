@@ -8,7 +8,7 @@ function App() {
 
   const [menu, setMenu] = useState(items);
   const [searchValue, setSearchValue] = useState('');
-  const [categories, setCategories] = useState(allCategories);
+  const [categories] = useState(allCategories);
   useEffect(()=>{
     if(searchValue.length === 0 && categories) {
       setMenu(items);
