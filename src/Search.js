@@ -1,11 +1,15 @@
 import React from "react";
+import Categories from './Categories';
 import { MdClear } from "react-icons/md";
 
-const Search = ({search, clear, searchValue}) => {
+const Search = ({search, clear, searchValue, categories, filterCategories}) => {
     return (
     <div className='search-block'>
-        <input type='text' placeholder='search...' value={searchValue} onChange={search}></input>
-        <button onClick={clear}> <MdClear /> </button>
+        <div className="search-bar">
+            <input type='text' placeholder='search...' value={searchValue} onChange={search}></input>
+            <button onClick={clear}> <MdClear className="icon"/> </button>
+        </div>
+        <Categories categories={categories} filterCategories={filterCategories}/>
     </div>
     );
 }
