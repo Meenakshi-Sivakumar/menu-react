@@ -3,10 +3,10 @@ import React from 'react';
 const Categories = ({categories, filterCategories}) => {
   let index = 0;
   return (
-    <div>
+    <div className='categories'>
     {categories.map(category => {
       return (
-        <button key={index++} className='btn' onClick={()=>filterCategories(category)}>{category}</button>
+        <button key={index++} onClick={()=>filterCategories(category)} autoFocus={category === 'All'} >{category}</button>
       );
     })}
     </div>
