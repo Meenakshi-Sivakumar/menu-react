@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Menu from './Menu';
-import Categories from './Categories';
 import Search from './Search';
 import items from './data';
 const allCategories = ['All', ...new Set(items.map(item => item.category))];
@@ -44,20 +43,19 @@ function App() {
     setMenu(newItem);
     return;
   }
-  
+
 
 
   return (
     <main>
-    <div className='section'>
-      <h2>We Serve</h2>
-      <p className='error-message'>Savor the Flavor: Where Culinary Delights Come Alive!</p>
-      <Search search={search} clear={clear} searchValue={searchValue}/>
-      <div className='categories'>
-        <Categories categories={categories} filterCategories={filterCategories}/>
+      <div className='main-head'> 
+        <h2>We Serve</h2>
+        <p>Savor the Flavor: Where Culinary Delights Come Alive!</p>
       </div>
+      <div className='section'>
+      <Search search={search} clear={clear} searchValue={searchValue} categories={categories} filterCategories={filterCategories}/>
+      {menu.length === 0 ? <p className='error-message'>OPPS! we dont serve that here ≡(▔﹏▔)≡</p> : ''}
       <div className='menu-section'>
-        {menu.length === 0 ? <p>OPPS! we dont serve that here</p> : ''}
         {menu.map(item => <Menu key={item.id} {...item}/>)}
       </div>
     </div>
