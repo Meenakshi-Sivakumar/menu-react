@@ -377,4 +377,7 @@ Menu
     padding: 5px;
     letter-spacing: 2px;
   }
+  .error-message {
+    font-size: 2rem;
+  }
 }
