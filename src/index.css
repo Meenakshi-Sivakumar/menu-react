@@ -334,6 +334,7 @@ Menu
     grid-template-columns: 1fr;
   }
   .categories {
+    width: 100%;
     display: flex;
     justify-content: space-between;
   }
@@ -361,7 +362,7 @@ Menu
     height: 50%;
   }
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 400px) {
   .search-block {
     margin: 0;
     padding-left: 0;
