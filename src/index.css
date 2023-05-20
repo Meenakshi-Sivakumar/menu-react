@@ -373,6 +373,7 @@ Menu
     justify-content: space-between;
   }
   .categories button {
-    padding: 3px;
+    padding: 5px;
+    letter-spacing: 2px;
   }
 }
